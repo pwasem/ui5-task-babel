@@ -7,7 +7,7 @@ For maximum flexibility no babel [configuration files](https://babeljs.io/docs/e
 
 Instead you have to manage your configuration and presets within your project according to your needs.
 
-The task will simply call [babel.transformAsync](https://babeljs.io/docs/en/babel-core#transformasync) for all your javascript resources which will use your local [configuration files](https://babeljs.io/docs/en/config-files).
+The task will simply call [babel.transformAsync](https://babeljs.io/docs/en/babel-core#transformasync) which will use your local [configuration files](https://babeljs.io/docs/en/config-files) for all your project's javascript resources.
 
 ## Prerequisites
 Make sure your project is using the latest [UI5 Tooling](https://sap.github.io/ui5-tooling/pages/GettingStarted/)
@@ -112,7 +112,8 @@ builder:
 
 #### Browserlist
 Consider adding a [browserlist](https://github.com/browserslist/browserslist) configuration to your project for controlling your target browsers. This configuration will [automatically be used by babel](https://babeljs.io/docs/en/babel-preset-env#browserslist-integration).
-Create e.g. file `.browserslistrc` in your project's root directory:
+
+E.g. create a file `.browserslistrc` in your project's root directory:
 ```
 > 0.25%
 not dead
