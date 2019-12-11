@@ -1,0 +1,22 @@
+{
+  "name": "ui5-task-babel",
+  "version": "1.0.0",
+  "description": "custom ui5 task extension for transpiling code using babel",
+  "main": "index.js",
+  "repository": "https://github.com/pwasem/ui5-task-babel",
+  "author": "pwasem <pascal.wasem@googlemail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@babel/core": "^7.7.5",
+    "@ui5/logger": "^1.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.7.2",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
+  }
+}

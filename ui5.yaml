@@ -1,0 +1,7 @@
+specVersion: '1.0'
+kind: extension
+type: task
+metadata:
+  name: babel
+task:
+  path: index.js
