@@ -1,7 +1,15 @@
 {
   "name": "ui5-task-babel",
-  "version": "1.0.0",
+  "version": "0.9.1",
   "description": "custom ui5 task extension for transpiling code using babel",
+  "keywords": [
+    "ui5",
+    "task",
+    "babel",
+    "openui5",
+    "tooling",
+    "transpile"
+  ],
   "main": "index.js",
   "repository": "https://github.com/pwasem/ui5-task-babel",
   "author": "pwasem <pascal.wasem@googlemail.com>",
