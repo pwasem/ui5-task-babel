@@ -18,6 +18,7 @@ Make sure your project is using the latest [UI5 Tooling](https://sap.github.io/u
 
 #### Custom task
 Add the custom task as and its peer dependencies as _devDependencies_ to your project.
+
 With `yarn`:
 ```sh
 yarn add -D ui5-task-babel @babel/core
@@ -63,7 +64,7 @@ builder:
       - '**/test/**'
       - '**/localService/**'
   customTasks:
-  - name: babel
+  - name: ui5-task-babel
     afterTask: replaceVersion
 ```
 
@@ -101,7 +102,7 @@ builder:
       - '**/test/**'
       - '**/localService/**'
   customTasks:
-  - name: babel
+  - name: ui5-task-babel
     afterTask: replaceVersion
     configuration:
       debug: true
