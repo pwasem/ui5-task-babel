@@ -17,13 +17,14 @@ Make sure your project is using the latest [UI5 Tooling](https://sap.github.io/u
 ### Install
 
 #### Custom task
-Add the custom task as dev dependency to your project. With `yarn`:
+Add the custom task as and its peer dependencies as _devDependencies_ to your project.
+With `yarn`:
 ```sh
-yarn add -D ui5-task-babel
+yarn add -D ui5-task-babel @babel/core
 ```
 Or `npm`:
 ```sh
-npm i -D ui5-task-babel
+npm i -D ui5-task-babel @babel/core
 ```
 
 Additionally the custom task needs to be manually defined as a ui5 dependency in your project's `package.json`:
