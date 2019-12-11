@@ -17,7 +17,7 @@ Make sure your project is using the latest [UI5 Tooling](https://sap.github.io/u
 ### Install
 
 #### Custom task
-Add the custom task as and its peer dependencies as _devDependencies_ to your project.
+Add the custom task and its peer dependencies as _devDependencies_ to your project.
 
 With `yarn`:
 ```sh
