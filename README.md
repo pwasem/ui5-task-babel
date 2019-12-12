@@ -3,14 +3,14 @@
 # ui5-task-babel
 Custom UI5 task extension for transpiling code using [babel](https://babeljs.io/).
 
-For maximum flexibility no babel [configuration files](https://babeljs.io/docs/en/config-files) or [presets](https://babeljs.io/docs/en/presets) will provided by the task.
+For maximum flexibility no babel [configuration files](https://babeljs.io/docs/en/config-files) or [presets](https://babeljs.io/docs/en/presets) will be provided by the custom task.
 
 Instead you have to manage your configuration and presets within your project according to your needs.
 
 The task will simply call [babel.transformAsync](https://babeljs.io/docs/en/babel-core#transformasync) which will use your local [configuration files](https://babeljs.io/docs/en/config-files) for all your project's javascript resources.
 
 ## Prerequisites
-Make sure your project is using the latest [UI5 Tooling](https://sap.github.io/ui5-tooling/pages/GettingStarted/)
+Make sure your project is using the latest [UI5 Tooling](https://sap.github.io/ui5-tooling/pages/GettingStarted/).
 
 ## Getting started
 
