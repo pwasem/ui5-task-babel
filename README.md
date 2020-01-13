@@ -93,11 +93,11 @@ Simply run `ui5 build` to transpile your code during the build.
 #### Options
 The custom task accepts the following configuration options:
 
-|  name  |   type   |                        Description                       | mandatory |   default   |                examples                |
-|:------:|:--------:|:--------------------------------------------------------:|:---------:|:-----------:|:--------------------------------------:|
-| debug  |  boolean |                 enable/disable debug logs                |     no    |   `false`   |             `true`, `false`            |
-| enable |  boolean |                    enable/disable task                   |     no    |   `false`   |             `true`, `false`            |
-| files  | string[] | list of files which should (not) be transformed by babel |     no    | [`**/*.js`] | [`**/*.js`, `!**/foo/*`, `!**/bar.js`] |
+|  name   |   type   |                        Description                       | mandatory |   default   |                examples                |
+|:-------:|:--------:|:--------------------------------------------------------:|:---------:|:-----------:|:--------------------------------------:|
+| debug   |  boolean |                 enable/disable debug logs                |     no    |   `false`   |             `true`, `false`            |
+| enabled |  boolean |                    enable/disable task                   |     no    |   `false`   |             `true`, `false`            |
+| files   | string[] | list of files which should (not) be transformed by babel |     no    | [`**/*.js`] | [`**/*.js`, `!**/foo/*`, `!**/bar.js`] |
 
 ```yaml
 builder:
@@ -109,6 +109,7 @@ builder:
   - name: ui5-task-babel
     afterTask: replaceVersion
     configuration:
+      enabled: true
       debug: true
       files:
         - '**/*.js'
@@ -126,5 +127,5 @@ not dead
 ```
 
 #### Polyfills
-For adding required polyfills for ECMAScript features and transpiled generator functions to your app please see [ui5-shim-babel-polyfill](https://github.com/pwasem/ui5-shim-babel-polyfill)
+For adding required polyfills for ECMAScript features and transpiled generator functions to your app please see [ui5-shim-babel-polyfill](https://github.com/pwasem/ui5-shim-babel-polyfill).
 
