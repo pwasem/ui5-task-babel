@@ -91,13 +91,14 @@ Simply run `ui5 build` to transpile your code during the build.
 ### Additional configuration
 
 #### Options
-The custom task accepts the following configuration options:
+The custom task accepts the following `configuration` options:
 
-|  name   |   type   |                        Description                       | mandatory |   default   |                examples                |
-|:-------:|:--------:|:--------------------------------------------------------:|:---------:|:-----------:|:--------------------------------------:|
-| debug   |  boolean |                 enable/disable debug logs                |     no    |   `false`   |             `true`, `false`            |
-| enabled |  boolean |                    enable/disable task                   |     no    |   `false`   |             `true`, `false`            |
-| files   | string[] | list of files which should (not) be transformed by babel |     no    | [`**/*.js`] | [`**/*.js`, `!**/foo/*`, `!**/bar.js`] |
+|  name   |   type   | Description                                                                                | mandatory |   default   |                examples                |
+|:-------:|:--------:|:------------------------------------------------------------------------------------------:|:---------:|:-----------:|:--------------------------------------:|
+| enabled |  boolean | enable/disable the custom task                                                             |     no    |   `false`   |             `true`, `false`            |
+| debug   |  boolean | enable/disable debug logs                                                                  |     no    |   `false`   |             `true`, `false`            |
+| wrap    |  boolean | wrap transformed code in an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) |     no    |   `true`    |             `true`, `false`            |
+| files   | string[] | file globs which should (not) be transformed by babel                                      |     no    | [`**/*.js`] | [`**/*.js`, `!**/foo/*`, `!**/bar.js`] |
 
 ```yaml
 builder:
@@ -111,6 +112,7 @@ builder:
     configuration:
       enabled: true
       debug: true
+      wrap: true
       files:
         - '**/*.js'
         - '!**/foo/**'
