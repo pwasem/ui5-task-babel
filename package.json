@@ -1,6 +1,6 @@
 {
   "name": "ui5-task-babel",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "custom ui5 task extension for transpiling code using babel",
   "keywords": [
     "ui5",

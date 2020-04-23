@@ -77,9 +77,11 @@ module.exports = api => {
     '@babel/preset-env'
   ]
   const plugins = []
+  const sourceType = 'script'
   return {
     presets,
-    plugins
+    plugins,
+    sourceType
   }
 }
 ```
