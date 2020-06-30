@@ -72,7 +72,7 @@ builder:
       afterTask: replaceVersion
 ```
 
-### Babel config
+#### Babel config
 Create a babel config file, e.g `babel.config.js` in your project's root directory:
 ```javascript
 module.exports = api => {
@@ -90,42 +90,6 @@ module.exports = api => {
 }
 ```
 You can learn more about babel config files [here](https://babeljs.io/docs/en/config-files).
-
-### Usage
-Simply run e.g. `ui5 build --clean-dest --all` to transpile your code during the build.
-
-Please make sure to pass option `--all` to include all project dependencies into the build process.
-
-### Additional configuration
-
-#### Options
-The custom task accepts the following `configuration` options:
-
-|  name   |   type   | Description                                                                                | mandatory |   default   |                examples                |
-|:-------:|:--------:|:------------------------------------------------------------------------------------------:|:---------:|:-----------:|:--------------------------------------:|
-| enabled |  boolean | enable/disable the custom task                                                             |     no    |   `true`    |             `true`, `false`            |
-| debug   |  boolean | enable/disable debug logs                                                                  |     no    |   `false`   |             `true`, `false`            |
-| wrap    |  boolean | wrap transformed code in an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) |     no    |   `true`    |             `true`, `false`            |
-| files   | string[] | file globs which should (not) be transformed by babel                                      |     no    | [`**/*.js`] | [`**/*.js`, `!**/foo/*`, `!**/bar.js`] |
-
-```yaml
-builder:
-  resources:
-    excludes:
-      - '**/test/**'
-      - '**/localService/**'
-  customTasks:
-  - name: ui5-task-babel
-    afterTask: replaceVersion
-    configuration:
-      enabled: true
-      debug: true
-      wrap: true
-      files:
-        - '**/*.js'
-        - '!**/foo/**'
-        - '!**/bar.js'
-```
 
 #### Runtime Polyfills
 As of Babel 7.4.0, [@babel/polyfill](https://babeljs.io/docs/en/babel-polyfill) has been deprecated in favor of directly including
@@ -207,6 +171,42 @@ Finally both must be included in `webapp/manifest.js` as `resources`:
     }
   }
 }
+```
+
+### Usage
+Simply run e.g. `ui5 build --clean-dest --all` to transpile your code during the build.
+
+Please make sure to pass option `--all` to include all project dependencies into the build process.
+
+### Additional configuration
+
+#### Options
+The custom task accepts the following `configuration` options:
+
+|  name   |   type   | Description                                                                                | mandatory |   default   |                examples                |
+|:-------:|:--------:|:------------------------------------------------------------------------------------------:|:---------:|:-----------:|:--------------------------------------:|
+| enabled |  boolean | enable/disable the custom task                                                             |     no    |   `true`    |             `true`, `false`            |
+| debug   |  boolean | enable/disable debug logs                                                                  |     no    |   `false`   |             `true`, `false`            |
+| wrap    |  boolean | wrap transformed code in an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) |     no    |   `true`    |             `true`, `false`            |
+| files   | string[] | file globs which should (not) be transformed by babel                                      |     no    | [`**/*.js`] | [`**/*.js`, `!**/foo/*`, `!**/bar.js`] |
+
+```yaml
+builder:
+  resources:
+    excludes:
+      - '**/test/**'
+      - '**/localService/**'
+  customTasks:
+  - name: ui5-task-babel
+    afterTask: replaceVersion
+    configuration:
+      enabled: true
+      debug: true
+      wrap: true
+      files:
+        - '**/*.js'
+        - '!**/foo/**'
+        - '!**/bar.js'
 ```
 
 #### Browserlist
