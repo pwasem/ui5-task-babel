@@ -122,30 +122,23 @@ builder:
         - '!**/bar.js'
 ```
 
-#### Browserlist
-Consider adding a [browserlist](https://github.com/browserslist/browserslist) configuration to your project for controlling your target browsers. This configuration will [automatically be used by babel](https://babeljs.io/docs/en/babel-preset-env#browserslist-integration).
-
-E.g. create a file `.browserslistrc` in your project's root directory:
-```
-> 0.25%
-not dead
-```
-
 #### Runtime Polyfills
 As of Babel 7.4.0, [@babel/polyfill](https://babeljs.io/docs/en/babel-polyfill) has been deprecated in favor of directly including
 - [core-js/stable](https://github.com/zloirock/core-js) (to polyfill ECMAScript features) and
 - [regenerator-runtime/runtime](https://github.com/facebook/regenerator/tree/master/packages/regenerator-runtime) (needed to use transpiled generator functions).
 
-First both need to be installed and manually added as ui5 dependencies in your project's `package.json`:
+First both need to be installed
 
-With `yarn`:
+with `yarn`:
 ```sh
 yarn add core-js-bundle regenerator-runtime
 ```
-Or `npm`:
+or `npm`:
 ```sh
 npm i core-js-bundle regenerator-runtime
 ```
+
+And manually added as ui5 dependencies in your project's `package.json`:
 
 ```json
 {
@@ -209,5 +202,14 @@ Finally both must be included in `webapp/manifest.js` as `resources`:
     }
   }
 }
+```
+
+#### Browserlist
+Consider adding a [browserlist](https://github.com/browserslist/browserslist) configuration to your project for controlling your target browsers. This configuration will [automatically be used by babel](https://babeljs.io/docs/en/babel-preset-env#browserslist-integration).
+
+E.g. create a file `.browserslistrc` in your project's root directory:
+```
+> 0.25%
+not dead
 ```
 
