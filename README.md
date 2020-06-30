@@ -31,6 +31,10 @@ npm i -D ui5-task-babel @babel/core
 Additionally the custom task needs to be manually defined as a ui5 dependency in your project's `package.json`:
 ```json
 {
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "ui5-task-babel": "^2.1.0"
+  },
   "ui5": {
     "dependencies": [
       "ui5-task-babel"
@@ -89,7 +93,8 @@ You can learn more about babel config files [here](https://babeljs.io/docs/en/co
 
 ### Usage
 Simply run e.g. `ui5 build --clean-dest --all` to transpile your code during the build.
-Make sure to pass option `--all` to include all project dependencies into the build process.
+
+Please make sure to pass option `--all` to include all project dependencies into the build process.
 
 ### Additional configuration
 
