@@ -1,5 +1,5 @@
-# https://sap.github.io/ui5-tooling/pages/extensibility/CustomServerMiddleware/
-specVersion: '2.0'
+# https://sap.github.io/ui5-tooling/pages/extensibility/CustomTasks/
+specVersion: '2.1'
 metadata:
   name: ui5-task-babel
 kind: extension

@@ -64,8 +64,8 @@ builder:
       - '**/test/**'
       - '**/localService/**'
   customTasks:
-  - name: ui5-task-babel
-    afterTask: replaceVersion
+    - name: ui5-task-babel
+      afterTask: replaceVersion
 ```
 
 ### Babel config
@@ -88,7 +88,8 @@ module.exports = api => {
 You can learn more about babel config files [here](https://babeljs.io/docs/en/config-files).
 
 ### Usage
-Simply run `ui5 build` to transpile your code during the build.
+Simply run e.g. `ui5 build --clean-dest --all` to transpile your code during the build.
+Make sure to pass option `--all` to include all project dependencies into the build process.
 
 ### Additional configuration
 
@@ -97,7 +98,7 @@ The custom task accepts the following `configuration` options:
 
 |  name   |   type   | Description                                                                                | mandatory |   default   |                examples                |
 |:-------:|:--------:|:------------------------------------------------------------------------------------------:|:---------:|:-----------:|:--------------------------------------:|
-| enabled |  boolean | enable/disable the custom task                                                             |     no    |   `false`   |             `true`, `false`            |
+| enabled |  boolean | enable/disable the custom task                                                             |     no    |   `true`    |             `true`, `false`            |
 | debug   |  boolean | enable/disable debug logs                                                                  |     no    |   `false`   |             `true`, `false`            |
 | wrap    |  boolean | wrap transformed code in an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) |     no    |   `true`    |             `true`, `false`            |
 | files   | string[] | file globs which should (not) be transformed by babel                                      |     no    | [`**/*.js`] | [`**/*.js`, `!**/foo/*`, `!**/bar.js`] |
@@ -130,6 +131,83 @@ E.g. create a file `.browserslistrc` in your project's root directory:
 not dead
 ```
 
-#### Polyfills
-For adding required polyfills for ECMAScript features and transpiled generator functions to your app please see [ui5-shim-babel-polyfill](https://github.com/pwasem/ui5-shim-babel-polyfill).
+#### Runtime Polyfills
+As of Babel 7.4.0, [@babel/polyfill](https://babeljs.io/docs/en/babel-polyfill) has been deprecated in favor of directly including
+- [core-js/stable](https://github.com/zloirock/core-js) (to polyfill ECMAScript features) and
+- [regenerator-runtime/runtime](https://github.com/facebook/regenerator/tree/master/packages/regenerator-runtime) (needed to use transpiled generator functions).
+
+First both need to be installed and manually added as ui5 dependencies in your project's `package.json`:
+
+With `yarn`:
+```sh
+yarn add core-js-bundle regenerator-runtime
+```
+Or `npm`:
+```sh
+npm i core-js-bundle regenerator-runtime
+```
+
+```json
+{
+  "dependencies": {
+    "core-js-bundle": "^3.6.5",
+    "regenerator-runtime": "^0.13.5"
+  },
+  "ui5": {
+    "dependencies": [
+      "core-js-bundle",
+      "regenerator-runtime"
+    ]
+  }
+}
+```
+
+Next both must be defined in `ui5.yaml` as a `project-shim` to be consumed as resources:
+
+```yml
+specVersion: '2.1'
+kind: extension
+type: project-shim
+metadata:
+  name: babel-shims
+shims:
+  configurations:
+    core-js-bundle:
+      specVersion: '2.1'
+      type: module
+      metadata:
+        name: core-js-bundle
+      resources:
+        configuration:
+          paths:
+            /resources/core-js-bundle/: ''
+    regenerator-runtime:
+      specVersion: '2.1'
+      type: module
+      metadata:
+        name: regenerator-runtime
+      resources:
+        configuration:
+          paths:
+            /resources/regenerator-runtime/: ''
+```
+
+Finally both must be included in `webapp/manifest.js` as `resources`:
+
+```json
+{
+  "sap.ui5": {
+    "resources": {
+      "js": [
+        {
+          "uri": "/resources/core-js-bundle/minified.js"
+        },
+        {
+          "uri": "/resources/regenerator-runtime/runtime.js"
+        }
+      ]
+    }
+  }
+}
+```
 
