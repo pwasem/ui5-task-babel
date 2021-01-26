@@ -218,3 +218,7 @@ E.g. create a file `.browserslistrc` in your project's root directory:
 not dead
 ```
 
+## Example app
+
+Please have look at [bookshop-ui](https://github.com/pwasem/bookshop-ui).
+
